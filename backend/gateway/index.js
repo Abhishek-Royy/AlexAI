@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import protect from "./middleware/auth.middleware.js";
 import { getCurrentUser } from "./controller/user.controller.js";
+import { proxyWithHeader } from "./utils/proxyWithHeader.js";
 
 dotenv.config();
 const PORT = process.env.PORT;
@@ -22,6 +23,8 @@ app.use(cookieParser());
 
 // if some come to /auth then it send this url
 app.use("/api/auth", proxy(process.env.AUTH_SERVICE));
+// if some come to /chat then it send this url
+app.use("/api/chat", proxyWithHeader(process.env.CHAT_SERVICE));
 // -------------------------
 app.use("/api/me",protect,getCurrentUser)
 
