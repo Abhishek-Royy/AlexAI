@@ -1,0 +1,400 @@
+# ============================================================
+
+# Multi-Agent AI System - Git Ignore
+
+# ============================================================
+
+# ============================================================
+# Environment Variables & Secrets
+# ============================================================
+
+.env
+.env.*
+.env.local
+.env.*.local
+*.env
+*.env.*
+!.env.example
+!.env.*.example
+
+# SSL & Crypto Keys
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+
+# Service Account & Cloud Credentials (Firebase, GCP, AWS)
+serviceAccountKey.json
+*serviceAccount*.json
+*service-account*.json
+credentials.json
+*credentials*.json
+client_secret*.json
+*firebase*.json
+firebase-debug.log*
+
+secrets/
+*.secret
+*.secrets
+
+# AWS credentials / local AWS configuration
+.aws/
+aws-credentials/
+
+# Terraform
+
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# ============================================================
+
+# Node.js
+
+# ============================================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+.pnpm-store/
+.yarn/
+.yarn-cache/
+
+# Package manager cache
+
+.npm/
+
+# ============================================================
+
+# Node.js Build Files
+
+# ============================================================
+
+dist/
+build/
+out/
+
+*.tsbuildinfo
+
+# Next.js
+
+.next/
+
+# Nuxt
+
+.nuxt/
+
+# Vite
+
+.vite/
+
+# Parcel
+
+.parcel-cache/
+
+# Turbo
+
+.turbo/
+
+# Coverage
+
+coverage/
+
+# ============================================================
+
+# Frontend
+
+# ============================================================
+
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.next/
+
+# ============================================================
+
+# Backend
+
+# ============================================================
+
+backend/node_modules/
+backend/dist/
+backend/build/
+
+# Individual microservice dependencies
+
+backend/services/*/node_modules/
+backend/services/*/dist/
+backend/services/*/build/
+
+# API Gateway
+backend/gateway/node_modules/
+backend/gateway/dist/
+backend/gateway/build/
+backend/api-gateway/node_modules/
+backend/api-gateway/dist/
+backend/api-gateway/build/
+
+# ============================================================
+
+# Python
+
+# ============================================================
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Python virtual environments
+
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# ============================================================
+
+# AI / ML Models
+
+# ============================================================
+
+models/
+model/
+checkpoints/
+weights/
+
+*.pt
+*.pth
+*.onnx
+*.bin
+*.safetensors
+*.h5
+*.keras
+*.tflite
+
+# ============================================================
+
+# RAG / Embeddings / Vector Databases
+
+# ============================================================
+
+vector_db/
+vectordb/
+vectorstore/
+chroma/
+chroma_db/
+
+*.faiss
+*.index
+
+embeddings/
+embedding_cache/
+
+# Local RAG data
+
+rag_data/
+processed_data/
+
+# Local datasets
+
+datasets/
+data/
+
+# ============================================================
+
+# Generated AI Files
+
+# ============================================================
+
+generated/
+generated_files/
+
+# User uploads
+
+uploads/
+uploaded_files/
+
+# Temporary files
+
+temp/
+tmp/
+.cache/
+
+# Generated documents
+
+*.pdf
+*.pptx
+*.docx
+*.xlsx
+
+# Keep documentation examples if required
+
+!docs/examples/
+!docs/examples/*.pdf
+!docs/examples/*.pptx
+!docs/examples/*.docx
+
+# ============================================================
+
+# Databases
+
+# ============================================================
+
+# SQLite
+
+*.db
+*.sqlite
+*.sqlite3
+
+# MongoDB local data
+
+mongo-data/
+data/db/
+
+# PostgreSQL local data
+
+postgres-data/
+
+# Redis
+
+dump.rdb
+appendonly.aof
+
+# ============================================================
+
+# Docker
+
+# ============================================================
+
+docker-compose.override.yml
+docker-compose.local.yml
+
+# ============================================================
+
+# Logs
+
+# ============================================================
+
+logs/
+*.log
+
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ============================================================
+
+# Testing
+
+# ============================================================
+
+test-results/
+playwright-report/
+blob-report/
+.nyc_output/
+
+# ============================================================
+
+# IDE / Editors
+
+# ============================================================
+
+.vscode/
+.idea/
+*.iml
+
+.history/
+
+# VS Code settings that may contain local configuration
+
+.vscode/settings.json
+
+# ============================================================
+
+# Operating System
+
+# ============================================================
+
+# Windows
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+
+*~
+
+# ============================================================
+
+# Temporary / Backup Files
+
+# ============================================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ============================================================
+
+# Local Configuration
+
+# ============================================================
+
+.local/
+.local-config/
+
+# ============================================================
+
+# OS / Development Tools
+
+# ============================================================
+
+*.pid
+*.seed
+*.pid.lock
+.cache/
+
+# ============================================================
+
+# Generated Documentation
+
+# ============================================================
+
+site/
+storybook-static/
+
+# ============================================================
+
+# Local Certificates
+
+# ============================================================
+
+certificates/
+ssl/
