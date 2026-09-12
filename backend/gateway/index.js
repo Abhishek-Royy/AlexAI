@@ -24,7 +24,7 @@ app.use(cookieParser());
 // if some come to /auth then it send this url
 app.use("/api/auth", proxy(process.env.AUTH_SERVICE));
 // if some come to /chat then it send this url
-app.use("/api/chat", proxyWithHeader(process.env.CHAT_SERVICE));
+app.use("/api/chat",protect, proxyWithHeader(process.env.CHAT_SERVICE));
 // -------------------------
 app.use("/api/me",protect,getCurrentUser)
 
