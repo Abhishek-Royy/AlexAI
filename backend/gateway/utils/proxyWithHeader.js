@@ -7,6 +7,7 @@ export const proxyWithHeader = (serviceUrl) => {
         // making custom header, x- use korle cutom header banano jai
         proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
       }
+      return proxyReqOpts
     },
   });
 };
