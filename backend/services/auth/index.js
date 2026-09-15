@@ -1,12 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import router from "./routes/auth.route.js";
 
 dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
-app.use(express.json())
+app.use(express.json());
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("Hello from auth");
