@@ -23,7 +23,7 @@ export const login = async (req, res) => {
     }
 
     // generate a session id
-    const sessionId = crypto.randomUUID;
+    const sessionId = crypto.randomUUID();
 
     // Redis
     await redis.set(
@@ -53,12 +53,21 @@ export const login = async (req, res) => {
 // create LOGOUT API
 export const logOut = async (req, res) => {
   try {
-    const sessionId = req.cookies?.session;
+    const sessionId =
+      req.cookies?.session ||
+      req.headers.cookie?.match(/session=([^;]+)/)?.[1];
+
     // remove session from redis
-    await redis.del(`session-${sessionId}`);
+    if (sessionId) {
+      await redis.del(`session-${sessionId}`);
+    }
 
     // remove session from cookies
-    res.clearCookie("session");
+    res.clearCookie("session", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+    });
     return res.status(200).json({ message: "Logout successfully" });
   } catch (error) {
     res.status(400).json({ message: `Logout eroor....${error}` });
