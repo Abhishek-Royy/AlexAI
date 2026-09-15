@@ -45,7 +45,7 @@ function Sidebar() {
     };
     getConv();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [userData?._id]);
 
   // HANDLE CREATE CONVERSATION
   const handleCreateConversation = async () => {
@@ -191,9 +191,14 @@ function Sidebar() {
                 </div>
                 <button
                   title="Logout"
-                  onClick={() => {
-                    logOut();
-                    dispatch(setUserdata(null));
+                  onClick={async () => {
+                    try {
+                      await logOut();
+                    } catch (error) {
+                      console.error("Logout error:", error);
+                    } finally {
+                      dispatch(setUserdata(null));
+                    }
                   }}
                 >
                   <FiLogOut
