@@ -33,7 +33,6 @@
   - [Running the Services](#running-the-services)
 - [🧪 Testing & Quality Strategy](#-testing--quality-strategy)
 - [🚀 Roadmap & Implementation Milestones](#-roadmap--implementation-milestones)
-- [🔐 Security Guidelines](#-security-guidelines)
 - [👨‍💻 Author & Contact](#-author--contact)
 - [📜 License](#-license)
 
