@@ -172,7 +172,7 @@ flowchart TD
 
 ---
 
-## 🔄 Core Workflow Pipelines
+## 🔄 Core Workflow Pipelines workflow
 
 ### 1. Research & Presentation Pipeline
 
