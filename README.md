@@ -172,7 +172,7 @@ flowchart TD
 
 ---
 
-## 🔄 Core Workflow Pipelines
+## 🔄 Core Workflow Pipelines workflow
 
 ### 1. Research & Presentation Pipeline
 
@@ -608,18 +608,6 @@ gantt
 - [ ] **Phase 8: Automated PPT Generation** — Outline synthesis, slide layout generation, and direct `.pptx` downloads.
 - [ ] **Phase 9: Distributed Background Workers** — BullMQ queues, asynchronous execution, and WebSocket notifications.
 - [ ] **Phase 10: Production Cloud Deployment** — AWS ECS, CloudFront, ALB, S3, Secrets Manager, and CI/CD pipelines.
-
----
-
-## 🔐 Security Guidelines
-
-> [!IMPORTANT]
-> **Zero Secrets in Version Control**: Never commit `.env` files, JWT secrets, database connection strings, or cloud provider access keys to source repositories.
-
-* **Authentication & Authorization**: HttpOnly cookies with JWT token rotation and secure session expiration.
-* **Network Isolation**: Backend microservices and databases reside in private subnets, accessible only through the API Gateway.
-* **Input Sanitization**: Strict schema validation on all ingress endpoints to prevent SQL/NoSQL injection and prompt injection.
-* **Rate Limiting**: Request throttling at the API Gateway level to safeguard against DDoS and API key quota exhaustion.
 
 ---
 
