@@ -64,7 +64,7 @@ export const saveMessage = async (req, res) => {
     return res.status(200).json(message);
   } catch (error) {
     return res
-      .staus(5000)
+      .status(500)
       .json({ message: `Error during save message,  ${error}` });
   }
 };
@@ -78,7 +78,7 @@ export const getAllMessages = async (req, res) => {
     return res.status(200).json(messages);
   } catch (error) {
     return res
-      .staus(5000)
+      .status(500)
       .json({ message: `Error during get messages,  ${error}` });
   }
 };
