@@ -308,8 +308,19 @@ ${state.prompt}`;
   const response = await llm.invoke(prompt);
   console.log(response);
 
+  let agentName = "chat";
+  try {
+    const rawContent = response.content?.trim() || "";
+    const cleaned = rawContent.replace(/```json|```/g, "").trim();
+    const parsed = JSON.parse(cleaned);
+    agentName = parsed.agent?.trim().toLowerCase() || "chat";
+  } catch {
+    const text = response.content?.trim().toLowerCase() || "chat";
+    agentName = text;
+  }
+
   return {
     ...state,
-    agent: response.content.trim().toLowerCase(),
+    agent: agentName,
   };
 };
