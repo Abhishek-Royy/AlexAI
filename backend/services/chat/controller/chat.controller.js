@@ -40,10 +40,11 @@ export const updateConversation = async (req, res) => {
   try {
     const { id, title } = req.body;
 
-    const conversation = await Conversation.findByIdAndUpdate({
+    const conversation = await Conversation.findByIdAndUpdate(
       id,
-      title,
-    });
+      { title },
+      { new: true }
+    );
     return res.status(200).json(conversation);
   } catch (error) {
     return res
