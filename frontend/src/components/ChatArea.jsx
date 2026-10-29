@@ -5,6 +5,13 @@ import getMessages from "../apis/getMessages";
 import { addMessages, setMessages } from "../redux/messageSlice";
 import MessageBubble from "./MessageBubble";
 import sendMessage from "../apis/sendMessage";
+import { createConversation } from "../apis/createCoversation";
+import {
+  addConversation,
+  setConversationTitle,
+  setSelectedConversation,
+} from "../redux/consversationSlice";
+import { updateConversation } from "../apis/updateConversation";
 
 const MODES = [
   "chat",
@@ -43,12 +50,42 @@ function ChatArea() {
   }, [selectedConversation]);
 
   const handleSend = async () => {
+    const promptText = value.trim();
+    if (!promptText) return;
+
+    let conversation = selectedConversation;
+
+    if (!conversation) {
+      const conv = await createConversation();
+
+      dispatch(setSelectedConversation(conv));
+      dispatch(addConversation(conv));
+      conversation = conv;
+    }
+
+    if (
+      !conversation.title ||
+      conversation.title === "New Chat" ||
+      conversation.title === "Newest Chat"
+    ) {
+      await updateConversation({
+        id: conversation._id,
+        title: promptText,
+      });
+      dispatch(
+        setConversationTitle({
+          conversationId: conversation._id,
+          title: promptText,
+        }),
+      );
+    }
+
     const payload = {
-      prompt: value.trim(),
-      conversationId: selectedConversation?._id,
+      prompt: promptText,
+      conversationId: conversation?._id,
     };
-    dispatch(addMessages({ role: "user", content: value.trim() }));
-    setValue("")
+    dispatch(addMessages({ role: "user", content: promptText }));
+    setValue("");
     const data = await sendMessage(payload);
     dispatch(addMessages({ role: "assistant", content: data }));
     console.log(data);
